@@ -1,4 +1,4 @@
-drop table client;
+drop table private_owner;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
@@ -24,17 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `branch`
 --
 
-CREATE TABLE `client` (
+CREATE TABLE `branch` (
   `id` int(11) NOT NULL,
-  `client_no` varchar(5) NOT NULL,
-  `first_name` varchar(300) NOT NULL,
-  `last_name` varchar(300) NOT NULL,
-  `telephone` text,
-  `pref_type` varchar(300) NOT NULL,
-  `max_rent` int(6) NOT NULL
+  `branch_no` varchar(5) NOT NULL,
+  `street` text,
+  `city` varchar(300) NOT NULL,
+  `post_code` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,9 +40,9 @@ CREATE TABLE `client` (
 --
 
 --
--- Indexes for table `client`
+-- Indexes for table `branch`
 --
-ALTER TABLE `client`
+ALTER TABLE `branch`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,9 +50,9 @@ ALTER TABLE `client`
 --
 
 --
--- AUTO_INCREMENT for table `client`
+-- AUTO_INCREMENT for table `branch`
 --
-ALTER TABLE `client`
+ALTER TABLE `branch`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

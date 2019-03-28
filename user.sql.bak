@@ -1,10 +1,9 @@
-drop table client;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2019 at 06:14 PM
+-- Generation Time: Mar 28, 2019 at 05:22 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -18,23 +17,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `std6102041510089_3`
+-- Database: `std6102041510089`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `user`
 --
+drop table user;
 
-CREATE TABLE `client` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `client_no` varchar(5) NOT NULL,
-  `first_name` varchar(300) NOT NULL,
-  `last_name` varchar(300) NOT NULL,
-  `telephone` text,
-  `pref_type` varchar(300) NOT NULL,
-  `max_rent` int(6) NOT NULL
+  `username` varchar(128) NOT NULL,
+  `email` varchar(160) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_active` enum('Active','Inactive') DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,19 +42,21 @@ CREATE TABLE `client` (
 --
 
 --
--- Indexes for table `client`
+-- Indexes for table `user`
 --
-ALTER TABLE `client`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username_UNIQUE` (`username`),
+  ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `client`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `client`
+ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

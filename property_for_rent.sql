@@ -1,3 +1,4 @@
+drop table property_for_rent;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/

@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `private_owner`
 --
 
+drop table private_owner;
+
 CREATE TABLE `private_owner` (
   `id` int(11) NOT NULL,
   `owner_no` varchar(5) NOT NULL,
