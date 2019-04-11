@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2019 at 02:11 AM
+-- Generation Time: Apr 11, 2019 at 02:17 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `private_owner` (
   `id` int(11) NOT NULL,
-  `owner_no` varchar(5) NOT NULL,
+  `owner_no` int(11) NOT NULL,
   `first_name` varchar(300) NOT NULL,
   `last_name` varchar(300) NOT NULL,
   `telephone` text,
-  `user_id` int(11) DEFAULT NULL
+  `fk_privateowner_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `private_owner` (
 --
 ALTER TABLE `private_owner`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_Id_idx` (`user_id`);
+  ADD KEY `fk_privateowner_user_id_idx` (`fk_privateowner_user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,7 +63,7 @@ ALTER TABLE `private_owner`
 -- Constraints for table `private_owner`
 --
 ALTER TABLE `private_owner`
-  ADD CONSTRAINT `user_Id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_privateowner_user_id` FOREIGN KEY (`fk_privateowner_user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

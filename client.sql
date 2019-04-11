@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2019 at 02:11 AM
+-- Generation Time: Apr 11, 2019 at 02:17 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `client` (
   `id` int(11) NOT NULL,
-  `client_no` varchar(5) NOT NULL,
+  `client_no` int(11) NOT NULL,
   `first_name` varchar(300) NOT NULL,
   `last_name` varchar(300) NOT NULL,
   `telephone` text,

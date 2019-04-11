@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2019 at 02:11 AM
+-- Generation Time: Apr 11, 2019 at 02:17 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,16 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `property_for_rent` (
   `id` int(11) NOT NULL,
-  `property_no` varchar(5) NOT NULL,
-  `street` text,
-  `city` varchar(300) NOT NULL,
-  `post_code` text,
+  `property_no` int(11) NOT NULL,
   `type` varchar(300) NOT NULL,
   `rooms` int(2) NOT NULL,
   `rent` int(6) NOT NULL,
-  `owner_no` varchar(5) DEFAULT NULL,
-  `staff_no` varchar(5) DEFAULT NULL,
-  `branch_no` varchar(5) DEFAULT NULL
+  `fk_pfr_owner_id` int(11) NOT NULL,
+  `fk_pfr_staff_id` int(11) DEFAULT NULL,
+  `fk_pfr_branch_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -48,7 +45,10 @@ CREATE TABLE `property_for_rent` (
 -- Indexes for table `property_for_rent`
 --
 ALTER TABLE `property_for_rent`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_pfr_owner_id_idx` (`fk_pfr_owner_id`),
+  ADD KEY `fk_pfr_staff_id_idx` (`fk_pfr_staff_id`),
+  ADD KEY `fk_pfr_branch_id_idx` (`fk_pfr_branch_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -59,6 +59,18 @@ ALTER TABLE `property_for_rent`
 --
 ALTER TABLE `property_for_rent`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `property_for_rent`
+--
+ALTER TABLE `property_for_rent`
+  ADD CONSTRAINT `fk_pfr_branch_id` FOREIGN KEY (`fk_pfr_branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pfr_owner_id` FOREIGN KEY (`fk_pfr_owner_id`) REFERENCES `private_owner` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pfr_staff_id` FOREIGN KEY (`fk_pfr_staff_id`) REFERENCES `staff` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

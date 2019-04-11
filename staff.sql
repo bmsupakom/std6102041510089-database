@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2019 at 02:11 AM
+-- Generation Time: Apr 11, 2019 at 02:17 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `staff` (
   `id` int(11) NOT NULL,
-  `staff_no` varchar(5) NOT NULL,
+  `staff_no` int(11) NOT NULL,
   `first_name` varchar(300) NOT NULL,
   `last_name` varchar(300) NOT NULL,
   `position` varchar(300) NOT NULL,
   `sex` varchar(1) NOT NULL,
   `DOB` text NOT NULL,
   `salary` int(10) NOT NULL,
-  `branch_no` varchar(5) NOT NULL
+  `fk_staff_branch_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -46,7 +46,8 @@ CREATE TABLE `staff` (
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_staff_branch_id_idx` (`fk_staff_branch_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -57,6 +58,16 @@ ALTER TABLE `staff`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `staff`
+--
+ALTER TABLE `staff`
+  ADD CONSTRAINT `fk_staff_branch_id` FOREIGN KEY (`fk_staff_branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

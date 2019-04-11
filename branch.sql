@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2019 at 02:10 AM
+-- Generation Time: Apr 11, 2019 at 02:17 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `branch` (
   `id` int(11) NOT NULL,
-  `branch_no` varchar(5) NOT NULL,
+  `branch_no` int(11) NOT NULL,
   `street` text,
   `city` varchar(300) NOT NULL,
   `post_code` text
