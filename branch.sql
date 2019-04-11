@@ -1,10 +1,9 @@
-drop table branch;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2019 at 06:14 PM
+-- Generation Time: Apr 11, 2019 at 02:10 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `std6102041510089_3`
+-- Database: `std6102041510089`
 --
 
 -- --------------------------------------------------------

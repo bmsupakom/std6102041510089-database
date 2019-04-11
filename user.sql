@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 28, 2019 at 05:22 AM
+-- Generation Time: Apr 11, 2019 at 02:11 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -25,7 +25,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `user`
 --
-drop table user;
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,

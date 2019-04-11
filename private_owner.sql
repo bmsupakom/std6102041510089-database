@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2019 at 06:14 PM
+-- Generation Time: Apr 11, 2019 at 02:11 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `std6102041510089_3`
+-- Database: `std6102041510089`
 --
 
 -- --------------------------------------------------------
@@ -26,14 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `private_owner`
 --
 
-drop table private_owner;
-
 CREATE TABLE `private_owner` (
   `id` int(11) NOT NULL,
   `owner_no` varchar(5) NOT NULL,
   `first_name` varchar(300) NOT NULL,
   `last_name` varchar(300) NOT NULL,
-  `telephone` text
+  `telephone` text,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -44,7 +43,8 @@ CREATE TABLE `private_owner` (
 -- Indexes for table `private_owner`
 --
 ALTER TABLE `private_owner`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_Id_idx` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -55,6 +55,16 @@ ALTER TABLE `private_owner`
 --
 ALTER TABLE `private_owner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `private_owner`
+--
+ALTER TABLE `private_owner`
+  ADD CONSTRAINT `user_Id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
